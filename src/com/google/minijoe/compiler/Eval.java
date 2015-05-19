@@ -20,6 +20,7 @@ import com.google.minijoe.compiler.visitor.DeclarationVisitor;
 import com.google.minijoe.compiler.visitor.RoundtripVisitor;
 import com.google.minijoe.samples.compiler.Crawler;
 import com.google.minijoe.samples.compiler.Curl;
+import com.google.minijoe.samples.compiler.PageRank;
 import com.google.minijoe.samples.compiler.Readability;
 import com.google.minijoe.sys.JsArray;
 import com.google.minijoe.sys.JsFunction;
@@ -75,6 +76,7 @@ public class Eval extends JsObject {
   static final int ID_LOAD = 108;
   static final int ID_GEN_SITEMAP = 109;
   static final int ID_WHOIS = 110;
+  static final int ID_PAGERANK = 111;
   
   private Daemon d = null;
 
@@ -93,6 +95,7 @@ public class Eval extends JsObject {
     addVar("compile", new JsFunction(ID_COMPILE,1));
     addVar("genSiteMap", new JsFunction(ID_GEN_SITEMAP, 1));
     addVar("whois", new JsFunction(ID_WHOIS, 1));
+    addVar("pagerank", new JsFunction(ID_PAGERANK, 1));
     
     //启动一个HTTP服务器
     try{
@@ -265,6 +268,11 @@ public class Eval extends JsObject {
 		} catch (HostNameValidationException e) {
 			e.printStackTrace();
 		}
+    	  break;
+    	  
+    	  
+      case ID_PAGERANK:
+    	  stack.setObject(sp, PageRank.getPR(stack.getString(sp+2)));
     	  break;
 
       default:
