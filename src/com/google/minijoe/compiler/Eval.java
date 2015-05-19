@@ -32,6 +32,10 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 
+import cz.jiripinkas.jsitemapgenerator.ChangeFreq;
+import cz.jiripinkas.jsitemapgenerator.WebPage;
+import cz.jiripinkas.jsitemapgenerator.WebSitemapGenerator;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
@@ -44,6 +48,7 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Date;
 import java.util.Properties;
 
 import se.rupy.http.Daemon;
@@ -65,6 +70,7 @@ public class Eval extends JsObject {
   static final int ID_ADD_RESPONSE = 106;
   static final int ID_COMPILE = 107;
   static final int ID_LOAD = 108;
+  static final int ID_GEN_SITEMAP = 109;
   
   private Daemon d = null;
 
@@ -81,6 +87,7 @@ public class Eval extends JsObject {
     addVar("extractHTML", new JsFunction(ID_EXTRACT_HTML, 1));
     addVar("addResponse", new JsFunction(ID_ADD_RESPONSE, 2));
     addVar("compile", new JsFunction(ID_COMPILE,1));
+    addVar("genSiteMap", new JsFunction(ID_GEN_SITEMAP, 1));
     
     //启动一个HTTP服务器
     try{
@@ -223,6 +230,27 @@ public class Eval extends JsObject {
     		  ex.printStackTrace();
     	  }
     	break;
+    	
+    	
+      case ID_GEN_SITEMAP:
+    	  
+    	  try{
+    	    	// create web sitemap for web http://www.javavids.com
+        	  WebSitemapGenerator webSitemapGenerator = new WebSitemapGenerator("http://www.javavids.com");
+        	  // add some URLs
+        	  webSitemapGenerator.addPage(new WebPage().setName("index.php")
+        	                     .setPriority(1.0).setChangeFreq(ChangeFreq.NEVER).setLastMod(new Date()));
+        	  webSitemapGenerator.addPage(new WebPage().setName("latest.php"));
+        	  webSitemapGenerator.addPage(new WebPage().setName("contact.php"));
+        	  // generate sitemap and save it to file /var/www/sitemap.xml
+        	  File file = new File("/var/www/sitemap.xml");
+        	  webSitemapGenerator.constructAndSaveSitemap(file);
+        	  // inform Google that this sitemap has changed
+        	  webSitemapGenerator.pingGoogle();    	 
+    	  }catch(Exception ex){
+    		  ex.printStackTrace();
+    	  }
+    	  break;
 
       default:
         super.evalNative(index, stack, sp, parCount);
