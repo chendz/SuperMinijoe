@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  Copyright (c) 2013 Joe Beeton.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the GNU Lesser Public License v2.1
+  which accompanies this distribution, and is available at
+  http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+  
+  Contributors:
+      Joe Beeton - initial API and implementation
+-->
+<WhoisServerList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="sample.xsd">
+  
+  
+  <WhoisServerDefinition>
+    <name>whois.crsnic.net</name>
+    <address>whois.crsnic.net</address>
+    <tld>com</tld>
+    <tld>net</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.pir.org</name>
+    <address>whois.pir.org</address>
+    <tld>org</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.publicinterestregistry.net</name>
+    <address>whois.publicinterestregistry.net</address>
+    <tld>org</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.afilias.info</name>
+    <address>whois.afilias.info</address>
+    <tld>info</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.afilias.net</name>
+    <address>whois.afilias.net</address>
+    <tld>info</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.neulevel.biz</name>
+    <address>whois.neulevel.biz</address>
+    <tld>biz</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.us</name>
+    <address>whois.nic.us</address>
+    <tld>us</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.uk</name>
+    <address>whois.nic.uk</address>
+    <tld>uk</tld>
+    <tld>co.uk</tld>
+    <tld>org.uk</tld>
+    <tld>ltd.uk</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.cira.ca</name>
+    <address>whois.cira.ca</address>
+    <tld>ca</tld>
+    <tld>ab.ca</tld>
+    <tld>bc.ca</tld>
+    <tld>mb.ca</tld>
+    <tld>nb.ca</tld>
+    <tld>nf.ca</tld>
+    <tld>nl.ca</tld>
+    <tld>ns.ca</tld>
+    <tld>nt.ca</tld>
+    <tld>nu.ca</tld>
+    <tld>on.ca</tld>
+    <tld>pe.ca</tld>
+    <tld>qc.ca</tld>
+    <tld>sk.ca</tld>
+   	<tld>yk.ca</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.tel</name>
+    <address>whois.nic.tel</address>
+    <tld>tel</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.iedr.ie</name>
+    <address>whois.iedr.ie</address>
+    <tld>ie</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.domainregistry.ie</name>
+    <address>whois.domainregistry.ie</address>
+    <tld>ie</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.it</name>
+    <address>whois.nic.it</address>
+    <tld>it</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.li</name>
+    <address>whois.nic.li</address>
+    <tld>li</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.norid.no</name>
+    <address>whois.norid.no</address>
+    <tld>no</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.cc</name>
+    <address>whois.nic.cc</address>
+    <tld>cc</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.eu</name>
+    <address>whois.eu</address>
+    <tld>eu</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.nu</name>
+    <address>whois.nic.nu</address>
+    <tld>nu</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.aunic.net</name>
+    <address>whois.aunic.net</address>
+    <tld>au</tld>
+    <tld>net.au</tld>
+    <tld>com.au</tld>
+    <tld>org.au</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.ausregistry.net.au</name>
+    <address>whois.ausregistry.net.au</address>
+    <tld>au</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.denic.de</name>
+    <address>whois.denic.de</address>
+    <tld>de</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.worldsite.ws</name>
+    <address>whois.worldsite.ws</address>
+    <tld>wd</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.ws</name>
+    <address>whois.nic.ws</address>
+    <tld>ws</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>www.nic.ws</name>
+    <address>www.nic.ws</address>
+    <tld>ws</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois2.afilias-grs.net</name>
+    <address>whois2.afilias-grs.net</address>
+    <tld>sc</tld>
+    <tld>hn</tld>
+    <tld>la</tld>
+    <tld>vc</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.dotmobiregistry.net</name>
+    <address>whois.dotmobiregistry.net</address>
+    <tld>mobi</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.registrypro.pro</name>
+    <address>whois.registrypro.pro</address>
+    <tld>pro</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.registry.pro</name>
+    <address>whois.registry.pro</address>
+    <tld>pro</tld>
+    <tld>aaa.pro</tld>
+    <tld>aca.pro</tld>
+    <tld>acct.pro</tld>
+    <tld>arc.pro</tld>
+    <tld>avocat.pro</tld>
+    <tld>bar.pro</tld>
+    <tld>bus.pro</tld>
+    <tld>cfp.pro</tld>
+    <tld>chi.pro</tld>
+    <tld>chiro.pro</tld>
+    <tld>cpa.pro</tld>
+    <tld>dds.pro</tld>
+    <tld>den.pro</tld>
+    <tld>dent.pro</tld>
+    <tld>ed.pro</tld>
+    <tld>eng.pro</tld>
+    <tld>jur.pro</tld>
+    <tld>law.pro</tld>
+    <tld>med.pro</tld>
+    <tld>min.pro</tld>
+    <tld>ntr.pro</tld>
+    <tld>nur.pro</tld>
+    <tld>nurse.pro</tld>
+    <tld>opt.pro</tld>
+    <tld>pa.pro</tld>
+    <tld>pha.pro</tld>
+    <tld>pharma.pro</tld>
+    <tld>pod.pro</tld>
+    <tld>pr.pro</tld>
+    <tld>prof.pro</tld>
+    <tld>prx.pro</tld>
+    <tld>psy.pro</tld>
+    <tld>pt.pro</tld>
+    <tld>recht.pro</tld>
+    <tld>rel.pro</tld>
+    <tld>teach.pro</tld>
+    <tld>vet.pro</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.educause.net</name>
+    <address>whois.educause.net</address>
+    <tld>edu</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.crsnic.net</name>
+    <address>whois.crsnic.net</address>
+    <tld>edu</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.tv</name>
+    <address>whois.nic.tv</address>
+    <tld>tv</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>tvwhois.verisign-grs.com</name>
+    <address>tvwhois.verisign-grs.com</address>
+    <tld>tv</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.travel</name>
+    <address>whois.nic.travel</address>
+    <tld>travel</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.name</name>
+    <address>whois.nic.name</address>
+    <tld>name</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.registry.in</name>
+    <address>whois.registry.in</address>
+    <tld>in</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.inregistry.net</name>
+    <address>whois.inregistry.net</address>
+    <tld>in</tld>
+    <tld>co.in</tld>
+    <tld>net.in</tld>
+    <tld>org.in</tld>
+    <tld>firm.in</tld>
+    <tld>gen.in</tld>
+    <tld>ind.in</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.me</name>
+    <address>whois.nic.me</address>
+    <tld>me</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.meregistry.net</name>
+    <address>whois.meregistry.net</address>
+    <tld>me</tld>
+  </WhoisServerDefinition>
+  
+ <WhoisServerDefinition>
+    <name>whois.nic.at</name>
+    <address>whois.nic.at</address>
+    <tld>at</tld>
+    <tld>co.at</tld>
+    <tld>or.at</tld>
+  </WhoisServerDefinition> 
+  
+  <WhoisServerDefinition>
+    <name>whois.dns.be</name>
+    <address>whois.dns.be</address>
+    <tld>be</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.cnnic.cn</name>
+    <address>whois.cnnic.cn</address>
+    <tld>cn</tld>
+    <tld>ah.cn</tld>
+    <tld>bj.cn</tld>
+    <tld>com.cn</tld>
+    <tld>cq.cn</tld>
+    <tld>fj.cn</tld>
+    <tld>gd.cn</tld>
+    <tld>gs.cn</tld>
+    <tld>gx.cn</tld>
+    <tld>gz.cn</tld>
+    <tld>ha.cn</tld>
+    <tld>hb.cn</tld>
+    <tld>he.cn</tld>
+    <tld>hi.cn</tld>
+    <tld>hk.cn</tld>
+    <tld>hl.cn</tld>
+    <tld>hn.cn</tld>
+    <tld>jl.cn</tld>
+    <tld>js.cn</tld>
+    <tld>jx.cn</tld>
+    <tld>ln.cn</tld>
+    <tld>mo.cn</tld>
+    <tld>net.cn</tld>
+    <tld>nm.cn</tld>
+    <tld>nx.cn</tld>
+    <tld>org.cn</tld>
+    <tld>qh.cn</tld>
+    <tld>sc.cn</tld>
+    <tld>sd.cn</tld>
+    <tld>sh.cn</tld>
+    <tld>sn.cn</tld>
+    <tld>sx.cn</tld>
+    <tld>tj.cn</tld>
+    <tld>tw.cn</tld>
+    <tld>xj.cn</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.cnnic.net.cn</name>
+    <address>whois.cnnic.net.cn</address>
+    <tld>cn</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.asia</name>
+    <address>whois.nic.asia</address>
+    <tld>asia</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.ripn.ru</name>
+    <address>whois.ripn.ru</address>
+    <tld>ru</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.ripn.net</name>
+    <address>whois.ripn.net</address>
+    <tld>com.ru</tld>
+    <tld>int.ru</tld>
+    <tld>net.ru</tld>
+    <tld>org.ru</tld>
+    <tld>pp.ru</tld>
+    <tld>su</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.rotld.ro</name>
+    <address>whois.rotld.ro</address>
+    <tld>ro</tld>
+    <tld>arts.ro</tld>
+    <tld>co.ro</tld>
+    <tld>com.ro</tld>
+    <tld>firm.ro</tld>
+    <tld>info.ro</tld>
+    <tld>nom.ro</tld>
+    <tld>nt.ro</tld>
+    <tld>org.ro</tld>
+    <tld>rec.ro</tld>
+    <tld>ro.ro</tld>
+    <tld>store.ro</tld>
+    <tld>tm.ro</tld>
+    <tld>www.ro</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.aero</name>
+    <address>whois.aero</address>
+    <tld>aero</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.fr</name>
+    <address>whois.nic.fr</address>
+    <tld>fr</tld>
+    <tld>asso.fr</tld>
+    <tld>com.fr</tld>
+    <tld>gouv.fr</tld>
+    <tld>nom.fr</tld>
+    <tld>tm.fr</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic-se.se</name>
+    <address>whois.nic-se.se</address>
+    <tld>se</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.se</name>
+    <address>whois.nic.se</address>
+    <tld>se</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.iis.se</name>
+    <address>whois.iis.se</address>
+    <tld>se</tld>
+    <tld>org.se</tld>
+    <tld>pp.se</tld>
+    <tld>tm.se</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.sidn.nl</name>
+    <address>whois.sidn.nl</address>
+    <tld>nl</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.domain-registry.nl</name>
+    <address>whois.domain-registry.nl</address>
+    <tld>nl</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.domainz.net.nz</name>
+    <address>whois.domainz.net.nz</address>
+    <tld>nz</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.srs.net.nz</name>
+    <address>whois.srs.net.nz</address>
+    <tld>nz</tld>
+    <tld>ac.nz</tld>
+    <tld>co.nz</tld>
+    <tld>cri.nz</tld>
+    <tld>cri.nz</tld>
+    <tld>geek.nz</tld>
+    <tld>gen.nz</tld>
+    <tld>govt.nz</tld>
+    <tld>iwi.nz</tld>
+    <tld>maori.nz</tld>
+    <tld>mil.nz</tld>
+    <tld>net.nz</tld>
+    <tld>org.nz</tld>
+    <tld>parliament.nz</tld>
+    <tld>school.nz</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.mx</name>
+    <address>whois.nic.mx</address>
+    <tld>mx</tld>
+    <tld>com.mx</tld>
+    <tld>edu.mx</tld>
+    <tld>gob.mx</tld>
+    <tld>net.mx</tld>
+    <tld>org.mx</tld>
+  </WhoisServerDefinition>
+  
+
+  <WhoisServerDefinition>
+    <name>whois.apnic.net</name>
+    <address>whois.apnic.net</address>
+    <tld>tw</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.twnic.net.tw</name>
+    <address>whois.twnic.net.tw</address>
+    <tld>tw</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.ch</name>
+    <address>whois.nic.ch</address>
+    <tld>ch</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.hknic.net.hk</name>
+    <address>whois.hknic.net.hk</address>
+    <tld>hk</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.ac</name>
+    <address>whois.nic.ac</address>
+    <tld>ac</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.ae</name>
+    <address>whois.nic.ae</address>
+    <tld>ae</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.af</name>
+    <address>whois.nic.af</address>
+    <tld>af</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.ag</name>
+    <address>whois.nic.ag</address>
+    <tld>ag</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.ripe.net</name>
+    <address>whois.ripe.net</address>
+    <tld>al</tld>
+    <tld>az</tld>
+    <tld>ba</tld>
+    <tld>by</tld>
+    <tld>cy</tld>
+    <tld>dz</tld>
+    <tld>eg</tld>
+    <tld>es</tld>
+    <tld>fo</tld>
+    <tld>gb</tld>
+    <tld>ge</tld>
+    <tld>gl</tld>
+    <tld>gm</tld>
+    <tld>gr</tld>
+    <tld>hr</tld>
+    <tld>hu</tld>
+    <tld>mc</tld>
+    <tld>mk</tld>
+    <tld>mt</tld>
+    <tld>sm</tld>
+    <tld>tn</tld>
+    <tld>ua</tld>
+    <tld>va</tld>
+    <tld>yu</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.amnic.net</name>
+    <address>whois.amnic.net</address>
+    <tld>am</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.as</name>
+    <address>whois.nic.as</address>
+    <tld>as</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.register.bg</name>
+    <address>whois.register.bg</address>
+    <tld>bg</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.bi</name>
+    <address>whois.nic.bi</address>
+    <tld>bi</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>www.nic.bj</name>
+    <address>www.nic.bj</address>
+    <tld>bj</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.br</name>
+    <address>whois.nic.br</address>
+    <tld>br</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.netnames.net</name>
+    <address>whois.netnames.net</address>
+    <tld>bt</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.belizenic.bz</name>
+    <address>whois.belizenic.bz</address>
+    <tld>bz</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.cd</name>
+    <address>whois.nic.cd</address>
+    <tld>cd</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.ck</name>
+    <address>whois.nic.ck</address>
+    <tld>ck</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>nic.cl</name>
+    <address>nic.cl</address>
+    <tld>cl</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.co.nl</name>
+    <address>whois.co.nl</address>
+    <tld>co.nl</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.coop</name>
+    <address>whois.nic.coop</address>
+    <tld>coop</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.cx</name>
+    <address>whois.nic.cx</address>
+    <tld>ck</tld>
+    <tld>dm</tld>
+    <tld>nf</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.cz</name>
+    <address>whois.nic.cz</address>
+    <tld>cz</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.dk-hostmaster.dk</name>
+    <address>whois.dk-hostmaster.dk</address>
+    <tld>dk</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.eenet.ee</name>
+    <address>whois.eenet.ee</address>
+    <tld>ee</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.ficora.fi</name>
+    <address>whois.ficora.fi</address>
+    <tld>fi</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.gov</name>
+    <address>whois.nic.gov</address>
+    <tld>gov</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.adamsnames.tc</name>
+    <address>whois.adamsnames.tc</address>
+    <tld>gs</tld>
+    <tld>tc</tld>
+    <tld>vg</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.registry.hm</name>
+    <address>whois.registry.hm</address>
+    <tld>hm</tld>
+  </WhoisServerDefinition>
+  
+ <WhoisServerDefinition>
+    <name>whois.isoc.org.il</name>
+    <address>whois.isoc.org.il</address>
+    <tld>il</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.isi.edu</name>
+    <address>whois.isi.edu</address>
+    <tld>int</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>vrx.net</name>
+    <address>vrx.net</address>
+    <tld>iq</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.ir</name>
+    <address>whois.nic.ir</address>
+    <tld>ir</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.isnic.is</name>
+    <address>whois.isnic.is</address>
+    <tld>is</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.je</name>
+    <address>whois.je</address>
+    <tld>je</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.jprs.jp</name>
+    <address>whois.jprs.jp</address>
+    <tld>jp</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.domain.kg</name>
+    <address>whois.domain.kg</address>
+    <tld>kg</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.or.kr</name>
+    <address>whois.nic.or.kr</address>
+    <tld>kr</tld>
+  </WhoisServerDefinition> 
+  
+  <WhoisServerDefinition>
+    <name>whois.domreg.lt</name>
+    <address>whois.domreg.lt</address>
+    <tld>lt</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.restena.lu</name>
+    <address>whois.restena.lu</address>
+    <tld>lu</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.lv</name>
+    <address>whois.nic.lv</address>
+    <tld>lv</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.lydomains.com</name>
+    <address>whois.lydomains.com</address>
+    <tld>ly</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.iam.net.ma</name>
+    <address>whois.iam.net.ma</address>
+    <tld>ma</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.md</name>
+    <address>whois.nic.md</address>
+    <tld>md</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.mil</name>
+    <address>whois.nic.mil</address>
+    <tld>mil</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.ms</name>
+    <address>whois.nic.ms</address>
+    <tld>ms</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.mu</name>
+    <address>whois.nic.mu</address>
+    <tld>mu</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.mynic.net.my</name>
+    <address>whois.mynic.net.my</address>
+    <tld>my</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.dns.pl</name>
+    <address>whois.dns.pl</address>
+    <tld>pl</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.pr</name>
+    <address>whois.nic.pr</address>
+    <tld>pr</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.dns.pt</name>
+    <address>whois.dns.pt</address>
+    <tld>pt</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>saudinic.net.sa</name>
+    <address>saudinic.net.sa</address>
+    <tld>sa</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.net.sb</name>
+    <address>whois.nic.net.sb</address>
+    <tld>sb</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.net.sg</name>
+    <address>whois.nic.net.sg</address>
+    <tld>sg</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.sh</name>
+    <address>whois.nic.sh</address>
+    <tld>sh</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.arnes.si</name>
+    <address>whois.arnes.si</address>
+    <tld>si</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.sk-nic.sk</name>
+    <address>whois.sk-nic.sk</address>
+    <tld>sk</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.st</name>
+    <address>whois.nic.st</address>
+    <tld>st</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.tf</name>
+    <address>whois.nic.tf</address>
+    <tld>tf</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.tk</name>
+    <address>whois.nic.tk</address>
+    <tld>tk</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.thnic.net</name>
+    <address>whois.thnic.net</address>
+    <tld>th</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.tj</name>
+    <address>whois.nic.tj</address>
+    <tld>tj</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.domains.tl</name>
+    <address>whois.domains.tl</address>
+    <tld>tl</tld>
+    <tld>tp</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.tm</name>
+    <address>whois.nic.tm</address>
+    <tld>tm</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.tonic.to</name>
+    <address>whois.tonic.to</address>
+    <tld>to</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.tr</name>
+    <address>whois.nic.tr</address>
+    <tld>tr</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.ja.net</name>
+    <address>whois.ja.net</address>
+    <tld>gov.uk</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>nic.uy</name>
+    <address>nic.uy</address>
+    <tld>uy</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.cctld.uz</name>
+    <address>whois.cctld.uz</address>
+    <tld>uz</tld>
+  </WhoisServerDefinition>
+  
+  <WhoisServerDefinition>
+    <name>whois.nic.ve</name>
+    <address>whois.nic.ve</address>
+    <tld>ve</tld>
+  </WhoisServerDefinition>
+  
+</WhoisServerList>
