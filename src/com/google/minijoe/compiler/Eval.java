@@ -54,6 +54,9 @@ import java.util.Properties;
 import se.rupy.http.Daemon;
 import se.rupy.http.Event;
 import se.rupy.http.Service;
+import uk.org.freedonia.jfreewhois.Whois;
+import uk.org.freedonia.jfreewhois.exceptions.HostNameValidationException;
+import uk.org.freedonia.jfreewhois.exceptions.WhoisException;
 
 /**
  * Simple facade for the parser and code generator
@@ -71,6 +74,7 @@ public class Eval extends JsObject {
   static final int ID_COMPILE = 107;
   static final int ID_LOAD = 108;
   static final int ID_GEN_SITEMAP = 109;
+  static final int ID_WHOIS = 110;
   
   private Daemon d = null;
 
@@ -88,6 +92,7 @@ public class Eval extends JsObject {
     addVar("addResponse", new JsFunction(ID_ADD_RESPONSE, 2));
     addVar("compile", new JsFunction(ID_COMPILE,1));
     addVar("genSiteMap", new JsFunction(ID_GEN_SITEMAP, 1));
+    addVar("whois", new JsFunction(ID_WHOIS, 1));
     
     //启动一个HTTP服务器
     try{
@@ -250,6 +255,16 @@ public class Eval extends JsObject {
     	  }catch(Exception ex){
     		  ex.printStackTrace();
     	  }
+    	  break;
+    	  
+      case ID_WHOIS:
+    	  try {
+			stack.setObject(sp, Whois.getRawWhoisResults(stack.getString(sp+2)));
+		} catch (WhoisException e) {
+			e.printStackTrace();
+		} catch (HostNameValidationException e) {
+			e.printStackTrace();
+		}
     	  break;
 
       default:
