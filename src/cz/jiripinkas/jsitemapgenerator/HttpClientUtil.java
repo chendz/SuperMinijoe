@@ -1,10 +1,14 @@
 package cz.jiripinkas.jsitemapgenerator;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
+//import org.apache.http.HttpEntity;
+//import org.apache.http.HttpResponse;
+//import org.apache.http.client.methods.HttpGet;
+//import org.apache.http.impl.client.DefaultHttpClient;
+//import org.apache.http.util.EntityUtils;
+
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
 
 public class HttpClientUtil {
 
@@ -25,26 +29,33 @@ public class HttpClientUtil {
 		// request
 		// execution by calling HttpGet#releaseConnection().
 
-		int resultCode = 0;
-		DefaultHttpClient httpclient = null;
-		HttpGet httpGet = null;
-		try {
-			httpclient = new DefaultHttpClient();
-			httpGet = new HttpGet(url);
+//		int resultCode = 0;
+//		DefaultHttpClient httpclient = null;
+//		HttpGet httpGet = null;
+//		try {
+//			httpclient = new DefaultHttpClient();
+//			httpGet = new HttpGet(url);
+//
+//			HttpResponse response = httpclient.execute(httpGet);
+//
+//			resultCode = response.getStatusLine().getStatusCode();
+//			HttpEntity entity = response.getEntity();
+//			// do something useful with the response body
+//			// and ensure it is fully consumed
+//			EntityUtils.consume(entity);
+//
+//		} catch (Exception ex) {
+//			throw new Exception("error sending HTTP GET to this URL: " + url);
+//		} finally {
+//			httpGet.releaseConnection();
+//		}
+//		return resultCode;
+		
+		OkHttpClient client = new OkHttpClient();
+	    Request request = new Request.Builder().url(url).build();
 
-			HttpResponse response = httpclient.execute(httpGet);
-
-			resultCode = response.getStatusLine().getStatusCode();
-			HttpEntity entity = response.getEntity();
-			// do something useful with the response body
-			// and ensure it is fully consumed
-			EntityUtils.consume(entity);
-
-		} catch (Exception ex) {
-			throw new Exception("error sending HTTP GET to this URL: " + url);
-		} finally {
-			httpGet.releaseConnection();
-		}
-		return resultCode;
+        Response response = client.newCall(request).execute();	
+        response.body().string();
+        return response.code();
 	}
 }

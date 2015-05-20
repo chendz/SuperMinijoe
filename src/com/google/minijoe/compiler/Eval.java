@@ -37,6 +37,7 @@ import cz.jiripinkas.jsitemapgenerator.ChangeFreq;
 import cz.jiripinkas.jsitemapgenerator.WebPage;
 import cz.jiripinkas.jsitemapgenerator.WebSitemapGenerator;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
@@ -44,6 +45,7 @@ import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
@@ -55,6 +57,12 @@ import java.util.Properties;
 import se.rupy.http.Daemon;
 import se.rupy.http.Event;
 import se.rupy.http.Service;
+import twitter4j.Status;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
+import twitter4j.auth.AccessToken;
+import twitter4j.auth.RequestToken;
 import uk.org.freedonia.jfreewhois.Whois;
 import uk.org.freedonia.jfreewhois.exceptions.HostNameValidationException;
 import uk.org.freedonia.jfreewhois.exceptions.WhoisException;
@@ -77,6 +85,7 @@ public class Eval extends JsObject {
   static final int ID_GEN_SITEMAP = 109;
   static final int ID_WHOIS = 110;
   static final int ID_PAGERANK = 111;
+  static final int ID_SEND_TWITTER = 112;
   
   private Daemon d = null;
 
@@ -96,6 +105,7 @@ public class Eval extends JsObject {
     addVar("genSiteMap", new JsFunction(ID_GEN_SITEMAP, 1));
     addVar("whois", new JsFunction(ID_WHOIS, 1));
     addVar("pagerank", new JsFunction(ID_PAGERANK, 1));
+    addVar("sendTwitter", new JsFunction(ID_SEND_TWITTER, 1));
     
     //启动一个HTTP服务器
     try{
@@ -275,6 +285,62 @@ public class Eval extends JsObject {
     	  stack.setObject(sp, PageRank.getPR(stack.getString(sp+2)));
     	  break;
 
+    	  
+      case ID_SEND_TWITTER:
+          try {
+              Twitter twitter = new TwitterFactory().getInstance();
+              try {
+                  // get request token.
+                  // this will throw IllegalStateException if access token is already available
+                  RequestToken requestToken = twitter.getOAuthRequestToken();
+                  System.out.println("Got request token.");
+                  System.out.println("Request token: " + requestToken.getToken());
+                  System.out.println("Request token secret: " + requestToken.getTokenSecret());
+                  AccessToken accessToken = null;
+
+                  BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                  while (null == accessToken) {
+                      System.out.println("Open the following URL and grant access to your account:");
+                      System.out.println(requestToken.getAuthorizationURL());
+                      System.out.print("Enter the PIN(if available) and hit enter after you granted access.[PIN]:");
+                      String pin = br.readLine();
+                      try {
+                          if (pin.length() > 0) {
+                              accessToken = twitter.getOAuthAccessToken(requestToken, pin);
+                          } else {
+                              accessToken = twitter.getOAuthAccessToken(requestToken);
+                          }
+                      } catch (TwitterException te) {
+                          if (401 == te.getStatusCode()) {
+                              System.out.println("Unable to get the access token.");
+                          } else {
+                              te.printStackTrace();
+                          }
+                      }
+                  }
+                  System.out.println("Got access token.");
+                  System.out.println("Access token: " + accessToken.getToken());
+                  System.out.println("Access token secret: " + accessToken.getTokenSecret());
+              } catch (IllegalStateException ie) {
+                  // access token is already available, or consumer key/secret is not set.
+                  if (!twitter.getAuthorization().isEnabled()) {
+                      System.out.println("OAuth consumer key/secret is not set.");
+                      System.exit(-1);
+                  }
+              }
+              Status status = twitter.updateStatus(stack.getString(sp+2));
+              System.out.println("Successfully updated the status to [" + status.getText() + "].");
+              System.exit(0);
+          } catch (TwitterException te) {
+              te.printStackTrace();
+              System.out.println("Failed to get timeline: " + te.getMessage());
+              System.exit(-1);
+          } catch (IOException ioe) {
+              ioe.printStackTrace();
+              System.out.println("Failed to read the system input.");
+              System.exit(-1);
+          }
+          break;
       default:
         super.evalNative(index, stack, sp, parCount);
     }
