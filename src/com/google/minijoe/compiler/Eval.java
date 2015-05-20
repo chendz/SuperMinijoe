@@ -15,14 +15,14 @@
 package com.google.minijoe.compiler;
 
 import com.google.minijoe.compiler.ast.Program;
-import com.google.minijoe.samples.compiler.Crawler;
-import com.google.minijoe.samples.compiler.Curl;
-import com.google.minijoe.samples.compiler.PageRank;
-import com.google.minijoe.samples.compiler.Readability;
+import com.google.minijoe.sys.Crawler;
+import com.google.minijoe.sys.Curl;
 import com.google.minijoe.sys.JsArray;
 import com.google.minijoe.sys.JsFunction;
 import com.google.minijoe.sys.JsObject;
 import com.google.minijoe.sys.JsSystem;
+import com.google.minijoe.sys.PageRank;
+import com.google.minijoe.sys.Readability;
 import com.squareup.okhttp.Cache;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;

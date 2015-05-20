@@ -1,4 +1,4 @@
-package com.google.minijoe.samples.compiler;
+package com.google.minijoe.sys;
 
 
 
@@ -9,7 +9,6 @@ import java.io.PrintWriter;
 
 import com.google.minijoe.compiler.CompilerException;
 import com.google.minijoe.compiler.Eval;
-import com.google.minijoe.sys.JsObject;
 
 public class MjShell {
 

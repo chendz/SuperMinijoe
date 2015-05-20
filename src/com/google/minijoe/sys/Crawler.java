@@ -1,4 +1,4 @@
-package com.google.minijoe.samples.compiler;
+package com.google.minijoe.sys;
 
 import com.squareup.okhttp.Cache;
 import com.squareup.okhttp.OkHttpClient;

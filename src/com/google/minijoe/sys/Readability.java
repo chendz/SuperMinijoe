@@ -1,4 +1,4 @@
-package com.google.minijoe.samples.compiler;
+package com.google.minijoe.sys;
 
 import java.io.File;
 import java.io.IOException;
