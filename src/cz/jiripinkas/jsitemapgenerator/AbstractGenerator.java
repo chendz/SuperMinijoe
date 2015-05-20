@@ -6,8 +6,6 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.TreeMap;
 
-import cz.jiripinkas.jsitemapgenerator.exception.InvalidUrlException;
-
 public abstract class AbstractGenerator {
 
 	protected Map<String, WebPage> urls = new TreeMap<String, WebPage>();

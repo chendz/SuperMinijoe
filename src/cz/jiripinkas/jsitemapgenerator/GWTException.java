@@ -1,4 +1,4 @@
-package cz.jiripinkas.jsitemapgenerator.exception;
+package cz.jiripinkas.jsitemapgenerator;
 
 public class GWTException extends RuntimeException {
 

@@ -4,9 +4,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
 
-import cz.jiripinkas.jsitemapgenerator.exception.InvalidPriorityException;
-import cz.jiripinkas.jsitemapgenerator.exception.InvalidUrlException;
-
 public class WebPage {
 	private String name;
 	private Date lastMod;

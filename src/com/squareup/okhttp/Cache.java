@@ -24,7 +24,6 @@ import com.squareup.okhttp.internal.http.CacheStrategy;
 import com.squareup.okhttp.internal.http.HttpMethod;
 import com.squareup.okhttp.internal.http.OkHeaders;
 import com.squareup.okhttp.internal.http.StatusLine;
-import com.squareup.okhttp.internal.io.FileSystem;
 import com.squareup.okhttp.okio.Buffer;
 import com.squareup.okhttp.okio.BufferedSink;
 import com.squareup.okhttp.okio.BufferedSource;

@@ -16,7 +16,7 @@
 
 package com.squareup.okhttp.internal;
 
-import com.squareup.okhttp.internal.io.FileSystem;
+import com.squareup.okhttp.FileSystem;
 import com.squareup.okhttp.okio.Buffer;
 import com.squareup.okhttp.okio.BufferedSink;
 import com.squareup.okhttp.okio.BufferedSource;

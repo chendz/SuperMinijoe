@@ -55,6 +55,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import se.rupy.http.Daemon;
 import se.rupy.http.Event;
@@ -75,6 +77,9 @@ import uk.org.freedonia.jfreewhois.exceptions.WhoisException;
  * @author Stefan Haustein
  */
 public class Eval extends JsObject {
+  private final Logger log = LoggerFactory.getLogger(getClass());
+  
+  
   static final int ID_EVAL = 100;
   static final int ID_HTTP_GET = 101;
   static final int ID_POST_JSON = 102;
@@ -90,6 +95,7 @@ public class Eval extends JsObject {
   static final int ID_SEND_TWITTER = 112;
   static final int ID_EXTRACT_TEXT = 113;
   static final int ID_LIST_LINKS = 114;
+  static final int ID_LOG = 115;
   
   private Daemon d = null;
 
@@ -112,6 +118,7 @@ public class Eval extends JsObject {
     addVar("sendTwitter", new JsFunction(ID_SEND_TWITTER, 1));
     addVar("extractText", new JsFunction(ID_EXTRACT_TEXT, 2));
     addVar("listLinks", new JsFunction(ID_LIST_LINKS, 0));
+    addVar("log", new JsFunction(ID_LOG, 1));
     
     //启动一个HTTP服务器
     try{
@@ -408,6 +415,11 @@ public class Eval extends JsObject {
     	  }catch(Exception ex){
     		  ex.printStackTrace();
     	  }
+    	  break;
+    	  
+    	  
+      case ID_LOG:
+    	  log.info(stack.getString(sp+2));
     	  break;
           
       default:
