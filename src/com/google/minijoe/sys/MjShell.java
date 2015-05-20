@@ -8,7 +8,6 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
 import com.google.minijoe.compiler.CompilerException;
-import com.google.minijoe.compiler.Eval;
 
 public class MjShell {
 

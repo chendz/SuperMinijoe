@@ -12,17 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.google.minijoe.compiler;
+package com.google.minijoe.sys;
 
+import com.google.minijoe.compiler.CodeGenerationVisitor;
+import com.google.minijoe.compiler.CompilerException;
+import com.google.minijoe.compiler.Config;
+import com.google.minijoe.compiler.DeclarationVisitor;
+import com.google.minijoe.compiler.Disassembler;
+import com.google.minijoe.compiler.Lexer;
+import com.google.minijoe.compiler.Parser;
+import com.google.minijoe.compiler.RoundtripVisitor;
 import com.google.minijoe.compiler.ast.Program;
-import com.google.minijoe.sys.Crawler;
-import com.google.minijoe.sys.Curl;
-import com.google.minijoe.sys.JsArray;
-import com.google.minijoe.sys.JsFunction;
-import com.google.minijoe.sys.JsObject;
-import com.google.minijoe.sys.JsSystem;
-import com.google.minijoe.sys.PageRank;
-import com.google.minijoe.sys.Readability;
 import com.squareup.okhttp.Cache;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
@@ -50,6 +50,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
 import java.util.Properties;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import se.rupy.http.Daemon;
 import se.rupy.http.Event;
@@ -83,6 +88,8 @@ public class Eval extends JsObject {
   static final int ID_WHOIS = 110;
   static final int ID_PAGERANK = 111;
   static final int ID_SEND_TWITTER = 112;
+  static final int ID_EXTRACT_TEXT = 113;
+  static final int ID_LIST_LINKS = 114;
   
   private Daemon d = null;
 
@@ -103,6 +110,8 @@ public class Eval extends JsObject {
     addVar("whois", new JsFunction(ID_WHOIS, 1));
     addVar("pagerank", new JsFunction(ID_PAGERANK, 1));
     addVar("sendTwitter", new JsFunction(ID_SEND_TWITTER, 1));
+    addVar("extractText", new JsFunction(ID_EXTRACT_TEXT, 2));
+    addVar("listLinks", new JsFunction(ID_LIST_LINKS, 0));
     
     //启动一个HTTP服务器
     try{
@@ -338,6 +347,69 @@ public class Eval extends JsObject {
               System.exit(-1);
           }
           break;
+          
+      case ID_EXTRACT_TEXT:    	  
+			try {
+				String url = stack.getString(sp + 2);
+				String selector = stack.getString(sp + 3);
+
+				Document doc = Jsoup.connect(url).userAgent("okhttp")
+						.timeout(5 * 1000).get();
+
+				HtmlToPlainText formatter = new HtmlToPlainText();
+
+				if (selector != null) {
+					Elements elements = doc.select(selector);
+					StringBuffer sb = new StringBuffer();
+					for (Element element : elements) {
+						String plainText = formatter.getPlainText(element);
+						sb.append(plainText);
+					}
+					stack.setObject(sp, sb.toString());
+				} else {
+					stack.setObject(sp, formatter.getPlainText(doc));
+
+				}
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+			break;
+			
+			
+      case ID_LIST_LINKS:
+    	  try{
+    	        String url = stack.getString(sp+2);
+    	        print("Fetching %s...", url);
+
+    	        Document doc = Jsoup.connect(url).get();
+    	        Elements links = doc.select("a[href]");
+    	        Elements media = doc.select("[src]");
+    	        Elements imports = doc.select("link[href]");
+
+    	        print("\nMedia: (%d)", media.size());
+    	        for (Element src : media) {
+    	            if (src.tagName().equals("img"))
+    	                print(" * %s: <%s> %sx%s (%s)",
+    	                        src.tagName(), src.attr("abs:src"), src.attr("width"), src.attr("height"),
+    	                        trim(src.attr("alt"), 20));
+    	            else
+    	                print(" * %s: <%s>", src.tagName(), src.attr("abs:src"));
+    	        }
+
+    	        print("\nImports: (%d)", imports.size());
+    	        for (Element link : imports) {
+    	            print(" * %s <%s> (%s)", link.tagName(),link.attr("abs:href"), link.attr("rel"));
+    	        }
+
+    	        print("\nLinks: (%d)", links.size());
+    	        for (Element link : links) {
+    	            print(" * a: <%s>  (%s)", link.attr("abs:href"), trim(link.text(), 35));
+    	        }    		  
+    	  }catch(Exception ex){
+    		  ex.printStackTrace();
+    	  }
+    	  break;
+          
       default:
         super.evalNative(index, stack, sp, parCount);
     }
@@ -374,4 +446,16 @@ public class Eval extends JsObject {
 
     return JsFunction.exec(new DataInputStream(new ByteArrayInputStream(code)), context);
   }
+  
+  
+  private static void print(String msg, Object... args) {
+      System.out.println(String.format(msg, args));
+  }
+
+  private static String trim(String s, int width) {
+      if (s.length() > width)
+          return s.substring(0, width-1) + ".";
+      else
+          return s;
+  }  
 }

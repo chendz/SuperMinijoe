@@ -1,4 +1,4 @@
-package org.jsoup.examples;
+package com.google.minijoe.sys;
 
 import org.jsoup.Jsoup;
 import org.jsoup.helper.StringUtil;
