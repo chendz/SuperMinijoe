@@ -15,7 +15,7 @@
 package com.google.minijoe.compiler.ast;
 
 import com.google.minijoe.compiler.CompilerException;
-import com.google.minijoe.compiler.visitor.Visitor;
+import com.google.minijoe.compiler.Visitor;
 
 /**
  * @author Andy Hayward

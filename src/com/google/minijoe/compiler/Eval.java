@@ -15,9 +15,6 @@
 package com.google.minijoe.compiler;
 
 import com.google.minijoe.compiler.ast.Program;
-import com.google.minijoe.compiler.visitor.CodeGenerationVisitor;
-import com.google.minijoe.compiler.visitor.DeclarationVisitor;
-import com.google.minijoe.compiler.visitor.RoundtripVisitor;
 import com.google.minijoe.samples.compiler.Crawler;
 import com.google.minijoe.samples.compiler.Curl;
 import com.google.minijoe.samples.compiler.PageRank;

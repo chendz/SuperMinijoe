@@ -12,9 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.google.minijoe.compiler.visitor;
+package com.google.minijoe.compiler;
 
-import com.google.minijoe.compiler.CompilerException;
 import com.google.minijoe.compiler.ast.ArrayLiteral;
 import com.google.minijoe.compiler.ast.AssignmentExpression;
 import com.google.minijoe.compiler.ast.AssignmentOperatorExpression;
