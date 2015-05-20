@@ -1,9 +1,10 @@
 package com.squareup.okhttp.internal;
 
 import java.io.IOException;
-import okio.Buffer;
-import okio.ForwardingSink;
-import okio.Sink;
+
+import com.squareup.okhttp.okio.Buffer;
+import com.squareup.okhttp.okio.ForwardingSink;
+import com.squareup.okhttp.okio.Sink;
 
 /** A sink that never throws IOExceptions, even if the underlying sink does. */
 class FaultHidingSink extends ForwardingSink {

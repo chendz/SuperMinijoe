@@ -16,13 +16,14 @@
 package com.squareup.okhttp;
 
 import com.squareup.okhttp.internal.Util;
+import com.squareup.okhttp.okio.Buffer;
+import com.squareup.okhttp.okio.BufferedSink;
+import com.squareup.okhttp.okio.ByteString;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import okio.Buffer;
-import okio.BufferedSink;
-import okio.ByteString;
 
 /**
  * Fluent API to build <a href="http://www.ietf.org/rfc/rfc2387.txt">RFC

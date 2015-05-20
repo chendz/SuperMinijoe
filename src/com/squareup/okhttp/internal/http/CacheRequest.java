@@ -16,7 +16,8 @@
 package com.squareup.okhttp.internal.http;
 
 import java.io.IOException;
-import okio.Sink;
+
+import com.squareup.okhttp.okio.Sink;
 
 public interface CacheRequest {
   Sink body() throws IOException;

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package okio;
+package com.squareup.okhttp.okio;
 
 /**
  * A collection of unused segments, necessary to avoid GC churn and zero-fill.

@@ -18,7 +18,7 @@ package com.squareup.okhttp.internal.http;
 import com.squareup.okhttp.Headers;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.ResponseBody;
-import okio.BufferedSource;
+import com.squareup.okhttp.okio.BufferedSource;
 
 public final class RealResponseBody extends ResponseBody {
   private final Headers headers;

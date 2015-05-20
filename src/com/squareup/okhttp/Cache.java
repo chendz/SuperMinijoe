@@ -25,6 +25,16 @@ import com.squareup.okhttp.internal.http.HttpMethod;
 import com.squareup.okhttp.internal.http.OkHeaders;
 import com.squareup.okhttp.internal.http.StatusLine;
 import com.squareup.okhttp.internal.io.FileSystem;
+import com.squareup.okhttp.okio.Buffer;
+import com.squareup.okhttp.okio.BufferedSink;
+import com.squareup.okhttp.okio.BufferedSource;
+import com.squareup.okhttp.okio.ByteString;
+import com.squareup.okhttp.okio.ForwardingSink;
+import com.squareup.okhttp.okio.ForwardingSource;
+import com.squareup.okhttp.okio.Okio;
+import com.squareup.okhttp.okio.Sink;
+import com.squareup.okhttp.okio.Source;
+
 import java.io.File;
 import java.io.IOException;
 import java.security.cert.Certificate;
@@ -36,15 +46,6 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
-import okio.Buffer;
-import okio.BufferedSink;
-import okio.BufferedSource;
-import okio.ByteString;
-import okio.ForwardingSink;
-import okio.ForwardingSource;
-import okio.Okio;
-import okio.Sink;
-import okio.Source;
 
 /**
  * Caches HTTP and HTTPS responses to the filesystem so they may be reused, saving time and

@@ -27,11 +27,13 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.internal.http.HttpEngine;
 import com.squareup.okhttp.internal.http.RouteException;
 import com.squareup.okhttp.internal.http.Transport;
+import com.squareup.okhttp.okio.BufferedSink;
+import com.squareup.okhttp.okio.BufferedSource;
+
 import java.io.IOException;
 import java.util.logging.Logger;
+
 import javax.net.ssl.SSLSocket;
-import okio.BufferedSink;
-import okio.BufferedSource;
 
 /**
  * Escalate internal APIs in {@code com.squareup.okhttp} so they can be used

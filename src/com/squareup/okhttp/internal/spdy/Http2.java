@@ -16,20 +16,21 @@
 package com.squareup.okhttp.internal.spdy;
 
 import com.squareup.okhttp.Protocol;
+import com.squareup.okhttp.okio.Buffer;
+import com.squareup.okhttp.okio.BufferedSink;
+import com.squareup.okhttp.okio.BufferedSource;
+import com.squareup.okhttp.okio.ByteString;
+import com.squareup.okhttp.okio.Source;
+import com.squareup.okhttp.okio.Timeout;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Logger;
-import okio.Buffer;
-import okio.BufferedSink;
-import okio.BufferedSource;
-import okio.ByteString;
-import okio.Source;
-import okio.Timeout;
 
 import static com.squareup.okhttp.internal.spdy.Http2.FrameLogger.formatHeader;
+import static com.squareup.okhttp.okio.ByteString.EMPTY;
 import static java.lang.String.format;
 import static java.util.logging.Level.FINE;
-import static okio.ByteString.EMPTY;
 
 /**
  * Read and write HTTP/2 frames.

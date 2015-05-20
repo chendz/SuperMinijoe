@@ -24,12 +24,13 @@ import com.squareup.okhttp.internal.http.SocketConnector;
 import com.squareup.okhttp.internal.http.SpdyTransport;
 import com.squareup.okhttp.internal.http.Transport;
 import com.squareup.okhttp.internal.spdy.SpdyConnection;
+import com.squareup.okhttp.okio.BufferedSink;
+import com.squareup.okhttp.okio.BufferedSource;
+
 import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownServiceException;
 import java.util.List;
-import okio.BufferedSink;
-import okio.BufferedSource;
 
 /**
  * The sockets and streams of an HTTP, HTTPS, or HTTPS+SPDY connection. May be

@@ -10,6 +10,9 @@ import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 import com.squareup.okhttp.internal.http.StatusLine;
 import com.squareup.okhttp.internal.spdy.Http2;
+import com.squareup.okhttp.okio.BufferedSource;
+import com.squareup.okhttp.okio.Okio;
+import com.squareup.okhttp.okio.Sink;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,15 +25,14 @@ import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
+
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-import okio.BufferedSource;
-import okio.Okio;
-import okio.Sink;
+
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class Curl implements Runnable {

@@ -33,6 +33,15 @@ import com.squareup.okhttp.Route;
 import com.squareup.okhttp.internal.Internal;
 import com.squareup.okhttp.internal.InternalCache;
 import com.squareup.okhttp.internal.Util;
+import com.squareup.okhttp.okio.Buffer;
+import com.squareup.okhttp.okio.BufferedSink;
+import com.squareup.okhttp.okio.BufferedSource;
+import com.squareup.okhttp.okio.GzipSource;
+import com.squareup.okhttp.okio.Okio;
+import com.squareup.okhttp.okio.Sink;
+import com.squareup.okhttp.okio.Source;
+import com.squareup.okhttp.okio.Timeout;
+
 //import com.squareup.okhttp.internal.Version;
 import java.io.IOException;
 import java.io.InterruptedIOException;
@@ -45,18 +54,11 @@ import java.security.cert.CertificateException;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSocketFactory;
-import okio.Buffer;
-import okio.BufferedSink;
-import okio.BufferedSource;
-import okio.GzipSource;
-import okio.Okio;
-import okio.Sink;
-import okio.Source;
-import okio.Timeout;
 
 import static com.squareup.okhttp.internal.Util.closeQuietly;
 import static com.squareup.okhttp.internal.Util.getDefaultPort;

@@ -16,7 +16,8 @@
 package com.squareup.okhttp;
 
 import java.io.UnsupportedEncodingException;
-import okio.ByteString;
+
+import com.squareup.okhttp.okio.ByteString;
 
 /** Factory for HTTP authorization credentials. */
 public final class Credentials {

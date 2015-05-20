@@ -29,6 +29,7 @@ import com.squareup.okhttp.internal.Platform;
 import com.squareup.okhttp.internal.ConnectionSpecSelector;
 import com.squareup.okhttp.internal.Util;
 import com.squareup.okhttp.internal.tls.OkHostnameVerifier;
+import com.squareup.okhttp.okio.Source;
 
 import java.io.IOException;
 import java.net.Proxy;
@@ -37,11 +38,10 @@ import java.net.URL;
 import java.security.cert.X509Certificate;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
-
-import okio.Source;
 
 import static com.squareup.okhttp.internal.Util.closeQuietly;
 import static com.squareup.okhttp.internal.Util.getDefaultPort;

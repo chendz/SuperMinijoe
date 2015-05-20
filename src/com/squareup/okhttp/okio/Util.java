@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package okio;
+package com.squareup.okhttp.okio;
 
 import java.nio.charset.Charset;
 
@@ -58,7 +58,7 @@ final class Util {
 
   /**
    * Throws {@code t}, even if the declared throws clause doesn't permit it.
-   * This is a terrible â€“ but terribly convenient â€“ hack that makes it easy to
+   * This is a terrible â€?but terribly convenient â€?hack that makes it easy to
    * catch and rethrow exceptions after cleanup. See Java Puzzlers #43.
    */
   public static void sneakyRethrow(Throwable t) {

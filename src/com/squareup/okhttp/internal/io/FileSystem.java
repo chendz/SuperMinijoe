@@ -18,9 +18,10 @@ package com.squareup.okhttp.internal.io;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import okio.Okio;
-import okio.Sink;
-import okio.Source;
+
+import com.squareup.okhttp.okio.Okio;
+import com.squareup.okhttp.okio.Sink;
+import com.squareup.okhttp.okio.Source;
 
 /**
  * Access to read and write files on a hierarchical data store. Most callers should use the {@link

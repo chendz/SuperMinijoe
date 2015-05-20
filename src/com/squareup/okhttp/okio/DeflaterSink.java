@@ -13,13 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package okio;
+package com.squareup.okhttp.okio;
 
 import java.io.IOException;
 import java.util.zip.Deflater;
 //import org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement;
 
-import static okio.Util.checkOffsetAndCount;
+
+import static com.squareup.okhttp.okio.Util.checkOffsetAndCount;
 
 /**
  * A sink that uses <a href="http://tools.ietf.org/html/rfc1951">DEFLATE</a> to

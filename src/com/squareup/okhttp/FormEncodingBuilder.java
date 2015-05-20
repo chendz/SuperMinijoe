@@ -17,7 +17,8 @@ package com.squareup.okhttp;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import okio.Buffer;
+
+import com.squareup.okhttp.okio.Buffer;
 
 /**
  * Fluent API to build <a href="http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1">HTML

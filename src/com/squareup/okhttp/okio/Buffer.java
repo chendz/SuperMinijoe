@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package okio;
+package com.squareup.okhttp.okio;
 
 import java.io.EOFException;
 import java.io.IOException;
@@ -26,8 +26,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static okio.Util.checkOffsetAndCount;
-import static okio.Util.reverseBytesLong;
+import static com.squareup.okhttp.okio.Util.checkOffsetAndCount;
+import static com.squareup.okhttp.okio.Util.reverseBytesLong;
 
 /**
  * A collection of bytes in memory.

@@ -22,11 +22,12 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import okio.Buffer;
-import okio.BufferedSource;
-import okio.ByteString;
-import okio.Okio;
-import okio.Source;
+
+import com.squareup.okhttp.okio.Buffer;
+import com.squareup.okhttp.okio.BufferedSource;
+import com.squareup.okhttp.okio.ByteString;
+import com.squareup.okhttp.okio.Okio;
+import com.squareup.okhttp.okio.Source;
 
 /**
  * Read and write HPACK v10.

@@ -16,6 +16,8 @@
 package com.squareup.okhttp;
 
 import com.squareup.okhttp.internal.Util;
+import com.squareup.okhttp.okio.ByteString;
+
 import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
@@ -23,8 +25,8 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.net.ssl.SSLPeerUnverifiedException;
-import okio.ByteString;
 
 import static java.util.Collections.unmodifiableList;
 

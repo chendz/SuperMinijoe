@@ -26,6 +26,10 @@ import com.squareup.okhttp.internal.spdy.ErrorCode;
 import com.squareup.okhttp.internal.spdy.Header;
 import com.squareup.okhttp.internal.spdy.SpdyConnection;
 import com.squareup.okhttp.internal.spdy.SpdyStream;
+import com.squareup.okhttp.okio.ByteString;
+import com.squareup.okhttp.okio.Okio;
+import com.squareup.okhttp.okio.Sink;
+
 import java.io.IOException;
 import java.net.ProtocolException;
 import java.util.ArrayList;
@@ -34,9 +38,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-import okio.ByteString;
-import okio.Okio;
-import okio.Sink;
 
 import static com.squareup.okhttp.internal.spdy.Header.RESPONSE_STATUS;
 import static com.squareup.okhttp.internal.spdy.Header.TARGET_AUTHORITY;

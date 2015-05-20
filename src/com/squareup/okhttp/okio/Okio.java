@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package okio;
+package com.squareup.okhttp.okio;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -30,7 +30,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 //import org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement;
 
-import static okio.Util.checkOffsetAndCount;
+
+import static com.squareup.okhttp.okio.Util.checkOffsetAndCount;
 
 /** Essential APIs for working with Okio. */
 public final class Okio {

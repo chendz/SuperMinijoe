@@ -20,13 +20,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.DataFormatException;
 import java.util.zip.Inflater;
-import okio.Buffer;
-import okio.BufferedSource;
-import okio.ByteString;
-import okio.ForwardingSource;
-import okio.InflaterSource;
-import okio.Okio;
-import okio.Source;
+
+import com.squareup.okhttp.okio.Buffer;
+import com.squareup.okhttp.okio.BufferedSource;
+import com.squareup.okhttp.okio.ByteString;
+import com.squareup.okhttp.okio.ForwardingSource;
+import com.squareup.okhttp.okio.InflaterSource;
+import com.squareup.okhttp.okio.Okio;
+import com.squareup.okhttp.okio.Source;
 
 /**
  * Reads a SPDY/3 Name/Value header block. This class is made complicated by the

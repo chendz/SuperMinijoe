@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package okio;
+package com.squareup.okhttp.okio;
 
 import java.io.EOFException;
 import java.io.IOException;
@@ -27,8 +27,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
-import static okio.Util.arrayRangeEquals;
-import static okio.Util.checkOffsetAndCount;
+import static com.squareup.okhttp.okio.Util.arrayRangeEquals;
+import static com.squareup.okhttp.okio.Util.checkOffsetAndCount;
 
 /**
  * An immutable sequence of bytes.

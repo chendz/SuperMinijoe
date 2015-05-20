@@ -21,12 +21,13 @@ import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.util.ArrayList;
 import java.util.List;
-import okio.AsyncTimeout;
-import okio.Buffer;
-import okio.BufferedSource;
-import okio.Sink;
-import okio.Source;
-import okio.Timeout;
+
+import com.squareup.okhttp.okio.AsyncTimeout;
+import com.squareup.okhttp.okio.Buffer;
+import com.squareup.okhttp.okio.BufferedSource;
+import com.squareup.okhttp.okio.Sink;
+import com.squareup.okhttp.okio.Source;
+import com.squareup.okhttp.okio.Timeout;
 
 import static com.squareup.okhttp.internal.spdy.Settings.DEFAULT_INITIAL_WINDOW_SIZE;
 
