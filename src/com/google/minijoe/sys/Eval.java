@@ -51,6 +51,13 @@ import java.net.URL;
 import java.util.Date;
 import java.util.Properties;
 
+import org.apache.commons.mail.DefaultAuthenticator;
+import org.apache.commons.mail.Email;
+import org.apache.commons.mail.EmailAttachment;
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.HtmlEmail;
+import org.apache.commons.mail.MultiPartEmail;
+import org.apache.commons.mail.SimpleEmail;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -96,6 +103,8 @@ public class Eval extends JsObject {
   static final int ID_EXTRACT_TEXT = 113;
   static final int ID_LIST_LINKS = 114;
   static final int ID_LOG = 115;
+  //发送邮件
+  static final int ID_SEND_MAIL = 116;
   
   private Daemon d = null;
 
@@ -119,6 +128,8 @@ public class Eval extends JsObject {
     addVar("extractText", new JsFunction(ID_EXTRACT_TEXT, 2));
     addVar("listLinks", new JsFunction(ID_LIST_LINKS, 0));
     addVar("log", new JsFunction(ID_LOG, 1));
+    addVar("sendMail", new JsFunction(ID_SEND_MAIL, 5));
+    
     
     //启动一个HTTP服务器
     try{
@@ -421,6 +432,72 @@ public class Eval extends JsObject {
       case ID_LOG:
     	  log.info(stack.getString(sp+2));
     	  break;
+    	  
+    	  
+      case ID_SEND_MAIL:
+     	 try {
+         if (true){
+       	  Email email = new SimpleEmail();
+       	  email.setHostName("smtp.googlemail.com");
+       	  email.setSmtpPort(465);
+       	  email.setAuthenticator(new DefaultAuthenticator("zzzz", "xxxx"));
+       	  email.setSSLOnConnect(true);
+       	  email.setFrom("user@gmail.com");
+       	  email.setSubject("TestMail");
+       	  email.setMsg("This is a test mail ... :-)");
+       	  email.addTo("user@live.com");    		  
+		  email.send();
+         }else if(false){
+        	 //发送带附件的---
+        	  // Create the attachment
+        	  EmailAttachment attachment = new EmailAttachment();
+        	  attachment.setPath("mypictures/john.jpg");
+        	  attachment.setDisposition(EmailAttachment.ATTACHMENT);
+        	  attachment.setDescription("Picture of John");
+        	  attachment.setName("John");
+
+        	  // Create the email message
+        	  MultiPartEmail email = new MultiPartEmail();
+        	  email.setHostName("mail.myserver.com");
+        	  email.addTo("jdoe@somewhere.org", "John Doe");
+        	  email.setFrom("me@apache.org", "Me");
+        	  email.setSubject("The picture");
+        	  email.setMsg("Here is the picture you wanted");
+
+        	  // add the attachment
+        	  email.attach(attachment);
+
+        	  // send the email
+        	  email.send();        	 
+         }else{
+        	  // Create the email message
+        	  HtmlEmail email = new HtmlEmail();
+        	  email.setHostName("mail.myserver.com");
+        	  email.addTo("jdoe@somewhere.org", "John Doe");
+        	  email.setFrom("me@apache.org", "Me");
+        	  email.setSubject("Test email with inline image");
+        	  
+        	  // embed the image and get the content id
+        	  URL url = new URL("http://www.apache.org/images/asf_logo_wide.gif");
+        	  String cid = email.embed(url, "Apache logo");
+        	  
+        	  // set the html message
+        	  email.setHtmlMsg("<html>The apache logo - <img src=\"cid:"+cid+"\"></html>");
+
+        	  // set the alternative message
+        	  email.setTextMsg("Your email client does not support HTML messages");
+
+        	  // send the email
+        	  email.send();        	 
+         }
+		  
+		 } catch (EmailException e) {			
+			e.printStackTrace();
+		 } catch(Exception ex){
+			 ex.printStackTrace();
+		 }
+    	  break;
+    	  
           
       default:
         super.evalNative(index, stack, sp, parCount);
