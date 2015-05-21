@@ -23,6 +23,8 @@ import com.google.minijoe.compiler.Lexer;
 import com.google.minijoe.compiler.Parser;
 import com.google.minijoe.compiler.RoundtripVisitor;
 import com.google.minijoe.compiler.ast.Program;
+import com.guilhermechapiewski.fluentmail.email.EmailMessage;
+import com.guilhermechapiewski.fluentmail.transport.EmailTransportConfiguration;
 import com.squareup.okhttp.Cache;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
@@ -51,13 +53,7 @@ import java.net.URL;
 import java.util.Date;
 import java.util.Properties;
 
-import org.apache.commons.mail.DefaultAuthenticator;
-import org.apache.commons.mail.Email;
-import org.apache.commons.mail.EmailAttachment;
-import org.apache.commons.mail.EmailException;
-import org.apache.commons.mail.HtmlEmail;
-import org.apache.commons.mail.MultiPartEmail;
-import org.apache.commons.mail.SimpleEmail;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -435,67 +431,23 @@ public class Eval extends JsObject {
     	  
     	  
       case ID_SEND_MAIL:
-     	 try {
-         if (true){
-       	  Email email = new SimpleEmail();
-       	  email.setHostName("smtp.googlemail.com");
-       	  email.setSmtpPort(465);
-       	  email.setAuthenticator(new DefaultAuthenticator("zzzz", "xxxx"));
-       	  email.setSSLOnConnect(true);
-       	  email.setFrom("user@gmail.com");
-       	  email.setSubject("TestMail");
-       	  email.setMsg("This is a test mail ... :-)");
-       	  email.addTo("user@live.com");    		  
-		  email.send();
-         }else if(false){
-        	 //发送带附件的---
-        	  // Create the attachment
-        	  EmailAttachment attachment = new EmailAttachment();
-        	  attachment.setPath("mypictures/john.jpg");
-        	  attachment.setDisposition(EmailAttachment.ATTACHMENT);
-        	  attachment.setDescription("Picture of John");
-        	  attachment.setName("John");
+    	try{
+  		// put your e-mail address here
+  		final String yourAddress = "guilherme.@gmail.com";
 
-        	  // Create the email message
-        	  MultiPartEmail email = new MultiPartEmail();
-        	  email.setHostName("mail.myserver.com");
-        	  email.addTo("jdoe@somewhere.org", "John Doe");
-        	  email.setFrom("me@apache.org", "Me");
-        	  email.setSubject("The picture");
-        	  email.setMsg("Here is the picture you wanted");
+  		// configure programatically your mail server info
+  		EmailTransportConfiguration.configure("smtp.server.com", true,
+  				false, "username", "password");
 
-        	  // add the attachment
-        	  email.attach(attachment);
+  		// and go!
+  		new EmailMessage().from("demo@guilhermechapiewski.com").to(yourAddress)
+  				.withSubject("Fluent Mail API")
+  				.withAttachment("file_name")
+  				.withBody("Demo message").send();
 
-        	  // send the email
-        	  email.send();        	 
-         }else{
-        	  // Create the email message
-        	  HtmlEmail email = new HtmlEmail();
-        	  email.setHostName("mail.myserver.com");
-        	  email.addTo("jdoe@somewhere.org", "John Doe");
-        	  email.setFrom("me@apache.org", "Me");
-        	  email.setSubject("Test email with inline image");
-        	  
-        	  // embed the image and get the content id
-        	  URL url = new URL("http://www.apache.org/images/asf_logo_wide.gif");
-        	  String cid = email.embed(url, "Apache logo");
-        	  
-        	  // set the html message
-        	  email.setHtmlMsg("<html>The apache logo - <img src=\"cid:"+cid+"\"></html>");
-
-        	  // set the alternative message
-        	  email.setTextMsg("Your email client does not support HTML messages");
-
-        	  // send the email
-        	  email.send();        	 
-         }
-		  
-		 } catch (EmailException e) {			
-			e.printStackTrace();
-		 } catch(Exception ex){
-			 ex.printStackTrace();
-		 }
+    	}catch(Exception ex){
+    		ex.printStackTrace();
+    	}
     	  break;
     	  
           
