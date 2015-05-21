@@ -5,5 +5,7 @@
 	<classpathentry kind="lib" path="E:/SuperMinijoe/lib/simple-xml-2.7.jar"/>
 	<classpathentry kind="lib" path="E:/SuperMinijoe/lib/twitter4j-core-4.0.3.jar"/>
 	<classpathentry kind="lib" path="E:/SuperMinijoe/lib/javax.mail.jar"/>
+	<classpathentry kind="lib" path="E:/SuperMinijoe/lib/jackson-mapper-asl-1.9.13.jar"/>
+	<classpathentry kind="lib" path="E:/SuperMinijoe/lib/jackson-core-asl-1.9.13.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
