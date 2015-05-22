@@ -53,7 +53,7 @@ import java.net.URL;
 import java.util.Date;
 import java.util.Properties;
 
-
+import org.iq80.snappy.Snappy;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -102,7 +102,7 @@ public class Eval extends JsObject {
   //�����ʼ�
   static final int ID_SEND_MAIL = 116;
   
-
+  static final int ID_SNAPPY = 171;
 
   static final JsObject COMPILER_PROTOTYPE = new JsObject(OBJECT_PROTOTYPE);
 
@@ -127,8 +127,10 @@ public class Eval extends JsObject {
     addVar("log", new JsFunction(ID_LOG, 1));
     addVar("sendMail", new JsFunction(ID_SEND_MAIL, 5));
     //怎么创建一个服务器呢？
-    addVar("HttpServer", new JsHttpServer());
-
+    //addVar("HttpServer", new JsHttpServer());
+    addVar("snappy", new JsFunction(ID_SNAPPY, 0));
+    
+    addVar("levelDb", new JsLevelDB());
 
   }
 
@@ -419,7 +421,19 @@ public class Eval extends JsObject {
     	  break;
     	  
     	  
- 
+      case ID_SNAPPY:
+    	  try{
+    	  String input = "Hello snappy-java! Snappy-java is a JNI-based wrapper of "
+    			     + "Snappy, a fast compresser/decompresser.";
+    			byte[] compressed = Snappy.compress(input.getBytes("UTF-8"));
+    			byte[] uncompressed = Snappy.uncompress(compressed, 0, compressed.length);
+
+    			String result = new String(uncompressed, "UTF-8");
+    			System.out.println(result);
+    	  }catch(Exception ex){
+    		  ex.printStackTrace();
+    	  }
+    	break;
           
       default:
         super.evalNative(index, stack, sp, parCount);
