@@ -126,7 +126,8 @@ public class Eval extends JsObject {
     addVar("listLinks", new JsFunction(ID_LIST_LINKS, 0));
     addVar("log", new JsFunction(ID_LOG, 1));
     addVar("sendMail", new JsFunction(ID_SEND_MAIL, 5));
-
+    //怎么创建一个服务器呢？
+    addVar("HttpServer", new JsHttpServer());
 
 
   }

@@ -20,8 +20,7 @@ import com.google.minijoe.compiler.CompilerException;
 
 public class MjShell {
 	
-	//应该是唯一的上下文
-	private JsObject global = Eval.createGlobal();
+
 	
 	public MjShell(){						
 	}
@@ -30,7 +29,9 @@ public class MjShell {
 	
 	public void run(){
 		
-
+		//应该是唯一的上下文
+		JsObject global = Eval.createGlobal();
+		
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		PrintWriter err = new PrintWriter(System.err);
 

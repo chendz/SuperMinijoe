@@ -111,6 +111,8 @@ public class JsObject  {
   static final int ID_INIT_ERROR = 67;
   static final int ID_INIT_FUNCTION = 68;
   static final int ID_INIT_DATE = 69;
+  
+  static final int ID_INIT_SERVER = 90;
 
   // math constants
   
@@ -627,7 +629,15 @@ public class JsObject  {
           stack.copy(sp, stack, sp-1);
         }
         break;
-      
+        
+        
+      case ID_INIT_SERVER:
+    	  if (isConstruction(stack, sp)){
+    		  JsHttpServer d = (JsHttpServer) this;
+    	  }else{
+    		  stack.setObject(sp, new JsHttpServer());
+    	  }
+    	 break; 
         
       case ID_INIT_DATE:
         // reset to defaults
@@ -1082,6 +1092,9 @@ public class JsObject  {
       case ID_SQRT2_SET:
         // dont do anything: cannot overwrite those values!
         break;  
+        
+        
+
                
       default:
         throw new IllegalArgumentException("Unknown native id: " + index 

@@ -18,22 +18,26 @@ import se.rupy.http.Service;
  */
 public class JsHttpServer extends JsObject {
 	
-   static final int ID_START_SERVER = 117;
-   static final int ID_ADD_RESPONSE = 106;
+   static final int ID_START = 117;
+   static final int ID_ADD_OUTPUT = 106;
+   static final int ID_CREATE = 118;
+   static final int ID_STOP = 119;
 	
    static final JsObject HTTPSERVER_PROTOTYPE = 
-			    new JsObject(JsObject.OBJECT_PROTOTYPE)
-   .addVar("startServer", new JsFunction(ID_START_SERVER, 1))
-   .addVar("addResponse", new JsFunction(ID_ADD_RESPONSE, 2));;
-   ;	
+			    new JsObject(JsObject.OBJECT_PROTOTYPE);
+
+
 
    private Daemon httpserver = null;
    
- 
 	
    public JsHttpServer(){
 	    super(HTTPSERVER_PROTOTYPE);
 
+	    addVar("start", new JsFunction(ID_START, 1));
+	    addVar("stop", new JsFunction(ID_STOP, 0));
+	    addVar("addOutput", new JsFunction(ID_ADD_OUTPUT, 2));
+	    addVar("create", new JsFunction(ID_CREATE, 0));
 	    
 		Properties p = new Properties();
 		p.put("test", "false");
@@ -90,7 +94,7 @@ public class JsHttpServer extends JsObject {
    
    public void evalNative(int index, JsArray stack, int sp, int parCount) {
 	    switch (index) {
-	      case ID_ADD_RESPONSE:
+	      case ID_ADD_OUTPUT:
 	    	  try {
 	    		 final String mPath = stack.getString(sp+2);
 	    		 final String mOut = stack.getString(sp+3);
@@ -114,7 +118,7 @@ public class JsHttpServer extends JsObject {
 			}
 	    	  break;
 	    	  
-	      case ID_START_SERVER:
+	      case ID_START:
 	    	 try{
 	    	  if (httpserver != null){
 	    		  httpserver.start();
@@ -123,7 +127,22 @@ public class JsHttpServer extends JsObject {
 	    		 ex.printStackTrace();
 	    	 }
 	    	 break;
-	    	  
+	    	 
+	      case ID_STOP:
+	    	 try{
+	    	  if (httpserver != null){
+	    		  httpserver.stop();
+	    	  }
+	    	 }catch(Exception ex){
+	    		 ex.printStackTrace();
+	    	 }
+	    	 break;	    	 
+	    	 
+	    	 
+	      case ID_CREATE:
+	    	  System.out.println("HttpServer.create();");
+	    	  break;	    	 
+	    	  	    	  
 	      default:
 	          super.evalNative(index, stack, sp, parCount);	    	  
 	    }

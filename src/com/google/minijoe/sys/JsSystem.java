@@ -44,6 +44,8 @@ public class JsSystem implements JsObjectFactory {
   static final int FACTORY_ID_TYPE_ERROR = 11;
   static final int FACTORY_ID_URI_ERROR = 12;
   static final int FACTORY_ID_FUNCTION = 13;
+  
+  static final int FACTORY_ID_HTTPSERVER = 14;
 
   static final Double NAN = new Double(Double.NaN);
   static final Double INFINITY = new Double(Double.POSITIVE_INFINITY);
@@ -69,6 +71,8 @@ public class JsSystem implements JsObjectFactory {
         JsDate.DATE_PROTOTYPE, JsObject.ID_INIT_DATE, 7)
       .addVar("parse", new JsFunction(JsDate.ID_PARSE, 1))
       .addVar("UTC", new JsFunction(JsDate.ID_UTC, 7)))
+     .addVar("HttpServer", new JsFunction(instance, JsSystem.FACTORY_ID_HTTPSERVER, JsHttpServer.HTTPSERVER_PROTOTYPE, JsObject.ID_INIT_SERVER, 0))
+        .addVar("create", new JsFunction(JsHttpServer.ID_CREATE, 0))
     .addVar("Array", new JsFunction(instance, JsSystem.FACTORY_ID_ARRAY, 
         JsArray.PROTOTYPE, JsObject.ID_INIT_ARRAY, 1))
     .addVar("Object", new JsFunction(instance, JsSystem.FACTORY_ID_OBJECT, 
@@ -292,6 +296,9 @@ public class JsSystem implements JsObjectFactory {
       case JsSystem.FACTORY_ID_FUNCTION:
         // this will be overwritten by the eval result in case ID_INIT_FUNCITON in JsObject
         return new JsFunction(-1, -1);
+      //构建一个  
+      case JsSystem.FACTORY_ID_HTTPSERVER:
+    	 return new JsHttpServer();
     }
     throw new IllegalArgumentException();
   }
