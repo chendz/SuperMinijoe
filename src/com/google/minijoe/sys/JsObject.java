@@ -1,17 +1,3 @@
-// Copyright 2008 Google Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-// http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 package com.google.minijoe.sys;
 
 import java.util.Date;
@@ -144,6 +130,9 @@ public class JsObject  {
   static final int ID_SQRT1_2_SET = 83;
   static final int ID_SQRT2 = 84;
   static final int ID_SQRT2_SET = 85;
+  //新增加的
+  static final int ID_TIMES = 86;
+  static final int ID_TOHEX = 87;
   
   public static final int TYPE_UNDEFINED = 0;
   public static final int TYPE_NULL = 1;
@@ -162,7 +151,7 @@ public class JsObject  {
   /** Placeholder for Javascript undefined (Java null) values in hashtables */
   private static final Object UNDEFINED_PLACEHOLDER = new Object();
   
-  /** Prototype of all Javascript objects */
+  //定义Object的prototype
   public static final JsObject OBJECT_PROTOTYPE = 
       new JsObject(null)
       .addVar("toString", new JsFunction(ID_TO_STRING, 0))
@@ -177,11 +166,14 @@ public class JsObject  {
   public static final JsObject BOOLEAN_PROTOTYPE = 
       new JsObject(OBJECT_PROTOTYPE);
 
+  //定义Number的prototype
   public static final JsObject NUMBER_PROTOTYPE = 
       new JsObject(OBJECT_PROTOTYPE)
       .addVar("toFixed", new JsFunction(ID_TO_FIXED, 1))
       .addVar("toExponential", new JsFunction(ID_TO_EXPONENTIAL, 1))
       .addVar("toPrecision", new JsFunction(ID_TO_PRECISION, 1))
+      .addVar("times", new JsFunction(ID_TIMES, 1))
+      .addVar("toHex", new JsFunction(ID_TOHEX, 0));
       ;
 
   public static final JsObject STRING_PROTOTYPE = 
@@ -975,6 +967,30 @@ public class JsObject  {
         stack.setObject(sp, JsSystem.formatNumber(index, 
             stack.getNumber(sp + 2), stack.getNumber(sp + 3)));
         break;
+        
+      //实现times的处理。  
+      case ID_TIMES:
+    	 try{
+			JsFunction fn = (JsFunction) stack.getObject(sp + 2);
+
+			JsArray stk = new JsArray();
+			stk.setObject(1, this);
+			stk.setObject(2, fn);
+			
+			int times = ((Double) this.value).intValue();//转为int的值
+			for (int idx = 0; idx < times; idx++) {
+				stk.setNumber(3, idx);
+				fn.eval(stk, 1, 1);
+			}    	  
+    	 }catch(Exception ex){
+    		 ex.printStackTrace();
+    	 }
+    	  break;
+    	  
+    	  
+      case ID_TOHEX:
+    	  stack.setObject(sp, Double.toHexString((double)this.value));
+    	  break;
         
       case ID_UTC:
         JsDate date = new JsDate(JsDate.DATE_PROTOTYPE);

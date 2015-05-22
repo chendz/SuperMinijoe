@@ -1,0 +1,90 @@
+15-05-22 12:06:52.991 null null
+java.lang.Exception: Threadlock
+	at se.rupy.http.Worker.busy(Worker.java:153)
+	at se.rupy.http.Daemon$Heart.run(Daemon.java:1335)
+	at java.lang.Thread.run(Unknown Source)
+15-05-22 12:06:53.992 null null
+java.lang.Exception: Threadlock
+	at se.rupy.http.Worker.busy(Worker.java:153)
+	at se.rupy.http.Daemon$Heart.run(Daemon.java:1335)
+	at java.lang.Thread.run(Unknown Source)
+15-05-22 12:06:54.993 null null
+java.lang.Exception: Threadlock
+	at se.rupy.http.Worker.busy(Worker.java:153)
+	at se.rupy.http.Daemon$Heart.run(Daemon.java:1335)
+	at java.lang.Thread.run(Unknown Source)
+15-05-22 12:06:55.993 null null
+java.lang.Exception: Threadlock
+	at se.rupy.http.Worker.busy(Worker.java:153)
+	at se.rupy.http.Daemon$Heart.run(Daemon.java:1335)
+	at java.lang.Thread.run(Unknown Source)
+15-05-22 12:06:56.994 null null
+java.lang.Exception: Threadlock
+	at se.rupy.http.Worker.busy(Worker.java:153)
+	at se.rupy.http.Daemon$Heart.run(Daemon.java:1335)
+	at java.lang.Thread.run(Unknown Source)
+15-05-22 12:06:57.994 null null
+java.lang.Exception: Threadlock
+	at se.rupy.http.Worker.busy(Worker.java:153)
+	at se.rupy.http.Daemon$Heart.run(Daemon.java:1335)
+	at java.lang.Thread.run(Unknown Source)
+15-05-22 12:06:58.994 null null
+java.lang.Exception: Threadlock
+	at se.rupy.http.Worker.busy(Worker.java:153)
+	at se.rupy.http.Daemon$Heart.run(Daemon.java:1335)
+	at java.lang.Thread.run(Unknown Source)
+15-05-22 12:06:59.994 null null
+java.lang.Exception: Threadlock
+	at se.rupy.http.Worker.busy(Worker.java:153)
+	at se.rupy.http.Daemon$Heart.run(Daemon.java:1335)
+	at java.lang.Thread.run(Unknown Source)
+15-05-22 12:07:00.994 null null
+java.lang.Exception: Threadlock
+	at se.rupy.http.Worker.busy(Worker.java:153)
+	at se.rupy.http.Daemon$Heart.run(Daemon.java:1335)
+	at java.lang.Thread.run(Unknown Source)
+15-05-22 12:07:01.995 null null
+java.lang.Exception: Threadlock
+	at se.rupy.http.Worker.busy(Worker.java:153)
+	at se.rupy.http.Daemon$Heart.run(Daemon.java:1335)
+	at java.lang.Thread.run(Unknown Source)
+15-05-22 12:07:02.995 null null
+java.lang.Exception: Threadlock
+	at se.rupy.http.Worker.busy(Worker.java:153)
+	at se.rupy.http.Daemon$Heart.run(Daemon.java:1335)
+	at java.lang.Thread.run(Unknown Source)
+15-05-22 12:07:03.995 null null
+java.lang.Exception: Threadlock
+	at se.rupy.http.Worker.busy(Worker.java:153)
+	at se.rupy.http.Daemon$Heart.run(Daemon.java:1335)
+	at java.lang.Thread.run(Unknown Source)
+15-05-22 12:07:04.995 null null
+java.lang.Exception: Threadlock
+	at se.rupy.http.Worker.busy(Worker.java:153)
+	at se.rupy.http.Daemon$Heart.run(Daemon.java:1335)
+	at java.lang.Thread.run(Unknown Source)
+15-05-22 12:07:05.995 null null
+java.lang.Exception: Threadlock
+	at se.rupy.http.Worker.busy(Worker.java:153)
+	at se.rupy.http.Daemon$Heart.run(Daemon.java:1335)
+	at java.lang.Thread.run(Unknown Source)
+15-05-22 12:07:06.995 null null
+java.lang.Exception: Threadlock
+	at se.rupy.http.Worker.busy(Worker.java:153)
+	at se.rupy.http.Daemon$Heart.run(Daemon.java:1335)
+	at java.lang.Thread.run(Unknown Source)
+15-05-22 12:07:07.995 null null
+java.lang.Exception: Threadlock
+	at se.rupy.http.Worker.busy(Worker.java:153)
+	at se.rupy.http.Daemon$Heart.run(Daemon.java:1335)
+	at java.lang.Thread.run(Unknown Source)
+15-05-22 12:07:08.995 null null
+java.lang.Exception: Threadlock
+	at se.rupy.http.Worker.busy(Worker.java:153)
+	at se.rupy.http.Daemon$Heart.run(Daemon.java:1335)
+	at java.lang.Thread.run(Unknown Source)
+15-05-22 12:07:09.995 null null
+java.lang.Exception: Threadlock
+	at se.rupy.http.Worker.busy(Worker.java:153)
+	at se.rupy.http.Daemon$Heart.run(Daemon.java:1335)
+	at java.lang.Thread.run(Unknown Source)

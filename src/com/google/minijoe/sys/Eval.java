@@ -89,7 +89,7 @@ public class Eval extends JsObject {
   static final int ID_CRAWLER = 103;
   static final int ID_CURL = 104;
   static final int ID_EXTRACT_HTML = 105;
-  static final int ID_ADD_RESPONSE = 106;
+
   static final int ID_COMPILE = 107;
   static final int ID_LOAD = 108;
   static final int ID_GEN_SITEMAP = 109;
@@ -99,10 +99,10 @@ public class Eval extends JsObject {
   static final int ID_EXTRACT_TEXT = 113;
   static final int ID_LIST_LINKS = 114;
   static final int ID_LOG = 115;
-  //·¢ËÍÓÊ¼þ
+  //ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½
   static final int ID_SEND_MAIL = 116;
   
-  private Daemon d = null;
+
 
   static final JsObject COMPILER_PROTOTYPE = new JsObject(OBJECT_PROTOTYPE);
 
@@ -115,8 +115,9 @@ public class Eval extends JsObject {
     addVar("startCrawler", new JsFunction(ID_CRAWLER, 1));
     addVar("curl", new JsFunction(ID_CURL,1));
     addVar("extractHTML", new JsFunction(ID_EXTRACT_HTML, 1));
-    addVar("addResponse", new JsFunction(ID_ADD_RESPONSE, 2));
+    
     addVar("compile", new JsFunction(ID_COMPILE,1));
+    addVar("load", new JsFunction(ID_LOAD,1));
     addVar("genSiteMap", new JsFunction(ID_GEN_SITEMAP, 1));
     addVar("whois", new JsFunction(ID_WHOIS, 1));
     addVar("pagerank", new JsFunction(ID_PAGERANK, 1));
@@ -125,20 +126,9 @@ public class Eval extends JsObject {
     addVar("listLinks", new JsFunction(ID_LIST_LINKS, 0));
     addVar("log", new JsFunction(ID_LOG, 1));
     addVar("sendMail", new JsFunction(ID_SEND_MAIL, 5));
-    
-    
-    //Æô¶¯Ò»¸öHTTP·þÎñÆ÷
-    try{
-    	Properties p = new Properties();
-    	p.put("test", "false");
-    	p.put("verbose", "true");
-    	p.put("log", "true");
-    	p.put("panel", "false");    
-        d = new Daemon(p);
-        d.start();
-    }catch(Exception ex){
-    	ex.printStackTrace();
-    }
+
+
+
   }
 
   public static JsObject createGlobal() {
@@ -216,30 +206,7 @@ public class Eval extends JsObject {
         break;
         
         
-      case ID_ADD_RESPONSE:
-    	  try {
-    		 final String mPath = stack.getString(sp+2);
-    		 final String mOut = stack.getString(sp+3);
-			d.add(
-						new Service(){
 
-							@Override
-							public String path() {							
-								return mPath;
-							}
-
-							@Override
-							public void filter(Event event) throws Event, Exception {
-								event.output().print(mOut);								
-							}
-							
-						}
-					  );
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-		}
-    	  break;
     	  
     	  
       case ID_COMPILE:
@@ -262,7 +229,7 @@ public class Eval extends JsObject {
       	    byte[] data = new byte[(int) file.length()];
       	    dis.readFully(data);
       	    String code = new String(data, "UTF-8");    	
-      	    //¼ÓÔØxxx.jsÎÄ¼þ
+      	    //ï¿½ï¿½ï¿½ï¿½xxx.jsï¿½Ä¼ï¿½
       	    Eval.eval(code, Eval.createGlobal());
     	  }catch(Exception ex){
     		  ex.printStackTrace();
@@ -450,6 +417,8 @@ public class Eval extends JsObject {
     	}
     	  break;
     	  
+    	  
+ 
           
       default:
         super.evalNative(index, stack, sp, parCount);
