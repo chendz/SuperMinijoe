@@ -3,6 +3,7 @@ package com.google.minijoe.sys;
 import java.io.File;
 
 import org.iq80.leveldb.DB;
+import org.iq80.leveldb.DBIterator;
 import org.iq80.leveldb.Options;
 import org.iq80.leveldb.WriteOptions;
 import org.iq80.leveldb.impl.Iq80DBFactory;
@@ -33,12 +34,25 @@ public class JsLevelDB extends JsObject {
 			db.put(bytes("Tampa"), bytes("rocks"));
 			String value = asString(db.get(bytes("Tampa")));
 			
-			WriteOptions wo = new WriteOptions();
-			db.delete(bytes("Tampa"), wo);
+			//WriteOptions wo = new WriteOptions();
+			//db.delete(bytes("Tampa"), wo);
 			
 			
 			String stats = db.getProperty("leveldb.stats");
 			System.out.println(stats);
+			
+			
+			DBIterator iterator = db.iterator();
+			try {
+			  for(iterator.seekToFirst(); iterator.hasNext(); iterator.next()) {
+			    String key = asString(iterator.peekNext().getKey());
+			    String val = asString(iterator.peekNext().getValue());
+			    System.out.println(key+" = "+val);
+			  }
+			} finally {
+			  // Make sure you close the iterator to avoid resource leaks.
+			  iterator.close();
+			}			
 		} finally {
 		  // Make sure you close the db to shutdown the 
 		  // database and avoid resource leaks.
