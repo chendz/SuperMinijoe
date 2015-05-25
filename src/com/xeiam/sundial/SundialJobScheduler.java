@@ -28,7 +28,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 
-import javax.servlet.ServletContext;
+
 
 import org.quartz.core.JobExecutionContext;
 import org.quartz.core.Scheduler;
@@ -59,7 +59,7 @@ public class SundialJobScheduler {
   /** global lock */
   private static boolean globalLock = false;
 
-  private static ServletContext servletContext = null;
+
 
   /**
    * Starts the Sundial Scheduler
@@ -159,21 +159,7 @@ public class SundialJobScheduler {
     return globalLock;
   }
 
-  /**
-   * @return the ServletContext
-   */
-  public static ServletContext getServletContext() {
 
-    return servletContext;
-  }
-
-  /**
-   * @param servletContext the ServletContext to set
-   */
-  public static void setServletContext(ServletContext servletContext) {
-
-    SundialJobScheduler.servletContext = servletContext;
-  }
 
   /**
    * Adds a Job to the scheduler. Replaces a matching existing Job.
