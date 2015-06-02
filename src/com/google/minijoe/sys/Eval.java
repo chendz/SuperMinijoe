@@ -51,6 +51,7 @@ import java.io.Writer;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.Properties;
 
 import org.eclipse.swt.SWT;
@@ -110,6 +111,7 @@ public class Eval extends JsObject {
   
   static final int ID_SNAPPY = 171;
   static final int ID_OPENBROWSER = 172;
+  static final int ID_HELP = 173;
 
   static final JsObject COMPILER_PROTOTYPE = new JsObject(OBJECT_PROTOTYPE);
 
@@ -117,7 +119,7 @@ public class Eval extends JsObject {
     super(COMPILER_PROTOTYPE);
     scopeChain = JsSystem.createGlobal();
     addVar("eval", new JsFunction(ID_EVAL, 2));
-    addVar("httpGet", new JsFunction(ID_HTTP_GET,1));
+    addVar("httpGet", new JsFunction(ID_HTTP_GET,1, "httpGet(url)通过OKHttp获取网页内容"));
     addVar("postJson", new JsFunction(ID_POST_JSON,2));
     addVar("startCrawler", new JsFunction(ID_CRAWLER, 1));
     addVar("curl", new JsFunction(ID_CURL,1));
@@ -138,8 +140,8 @@ public class Eval extends JsObject {
     addVar("snappy", new JsFunction(ID_SNAPPY, 0));
     
     addVar("levelDb", new JsLevelDB());
-    addVar("openBrowser", new JsFunction(ID_OPENBROWSER,1));
-
+    addVar("openBrowser", new JsFunction(ID_OPENBROWSER,1, "openBrowser(url)打开浏览器"));
+    addVar("help", new JsFunction(ID_HELP,1));
   }
 
   public static JsObject createGlobal() {
@@ -450,6 +452,19 @@ public class Eval extends JsObject {
     			  openBrowser();
     		  }
     	  }).start();
+    	  break;
+    	  
+      case ID_HELP:
+    	  Enumeration ex = this.keys();
+    	  while(ex.hasMoreElements()){
+    		  String key = (String)ex.nextElement();
+    		  Object val = this.getRawInPrototypeChain(key);
+    		  if (val instanceof JsFunction){
+    		     System.out.println(key+"---"+((JsFunction)val).description);
+    		  }else{
+    			 System.out.println(key+"---"+val); 
+    		  }
+    	  }
     	  break;
           
       default:

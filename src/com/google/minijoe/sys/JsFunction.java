@@ -157,6 +157,8 @@ public class JsFunction extends JsObject {
 
   private int[] lineNumbers;
   
+  public String description;
+  
   /**
    * Parses the given stream and runs the main function
    * @throws IOException
@@ -189,6 +191,18 @@ public class JsFunction extends JsObject {
     this.index = index;
     this.expectedParameterCount = parCount;
   }
+  /**
+   * 带注释的函数
+   * @param index
+   * @param parCount
+   * @param desc
+   */
+  public JsFunction(int index, int parCount, String desc) {
+	    super(FUNCTION_PROTOTYPE);
+	    this.index = index;
+	    this.expectedParameterCount = parCount;
+	    this.description = desc;
+   }  
 
   /**
    * Creates a new function from the given function literal and context.

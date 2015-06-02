@@ -73,4 +73,8 @@ public class JsLevelDB extends JsObject {
 			super.evalNative(index, stack, sp, parCount);
 		}
 	}
+	
+	public String toString(){
+		return "LevelDB: 一个简单的NoSQL数据库。";
+	}
 }
