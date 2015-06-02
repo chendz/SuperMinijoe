@@ -229,7 +229,8 @@ public class Eval extends JsObject {
     	    byte[] data = new byte[(int) file.length()];
     	    dis.readFully(data);
     	    String code = new String(data, "UTF-8");
-    	    Eval.compile(code, System.out);    	  
+    	    Eval.compile(code, System.out);  
+    	    dis.close();
     	  }catch(Exception ex){
     		  ex.printStackTrace();
     	  }
@@ -244,6 +245,7 @@ public class Eval extends JsObject {
       	    String code = new String(data, "UTF-8");    	
       	    //����xxx.js�ļ�
       	    Eval.eval(code, Eval.createGlobal());
+      	    dis.close();
     	  }catch(Exception ex){
     		  ex.printStackTrace();
     	  }
@@ -274,9 +276,9 @@ public class Eval extends JsObject {
     	  try {
 			stack.setObject(sp, Whois.getRawWhoisResults(stack.getString(sp+2)));
 		} catch (WhoisException e) {
-			e.printStackTrace();
+			stack.setObject(sp, "Whois Exception "+e.getMessage());
 		} catch (HostNameValidationException e) {
-			e.printStackTrace();
+			stack.setObject(sp, "Whois host name invalid "+e.getMessage());
 		}
     	  break;
     	  
@@ -426,7 +428,7 @@ public class Eval extends JsObject {
   				.withBody("Demo message").send();
 
     	}catch(Exception ex){
-    		ex.printStackTrace();
+    		stack.setObject(sp, "[ERROR]"+ex.getMessage());
     	}
     	  break;
     	  
