@@ -31,7 +31,6 @@ import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
-import com.teamdev.jexplorer.demo.JExplorerDemo;
 
 import cz.jiripinkas.jsitemapgenerator.ChangeFreq;
 import cz.jiripinkas.jsitemapgenerator.WebPage;
@@ -54,10 +53,12 @@ import java.net.URL;
 import java.util.Date;
 import java.util.Properties;
 
-import javax.swing.JPopupMenu;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.SWTError;
+import org.eclipse.swt.browser.Browser;
+import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
 import org.iq80.snappy.Snappy;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -456,14 +457,30 @@ public class Eval extends JsObject {
     }
   }
 
-private void openBrowser() {
-	try {
-		com.teamdev.jexplorer.demo.JExplorerDemo.main(null);
-	} catch (Exception e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+  private void openBrowser() {
+		try{
+				Display display = new Display();
+				Shell shell = new Shell(display);
+				shell.setLayout(new FillLayout());
+				shell.setText("IE-Me");
+				final Browser browser;
+				try {
+					browser = new Browser(shell, SWT.NONE);
+				} catch (SWTError e) {
+					System.out.println("Could not instantiate Browser: " + e.getMessage());
+					display.dispose();
+					return;
+				}
+				shell.open();
+				browser.setUrl("http://www.zhihu.com/people/a-zhi-53");
+				while (!shell.isDisposed()) {
+					if (!display.readAndDispatch()) display.sleep();
+				}
+				display.dispose();    		  
+		  }catch(Exception ex){
+			  ex.printStackTrace();
+		  }
 	}
-}
 
   public static void compile(String input, OutputStream os) throws CompilerException, IOException {
     Lexer lexer = new Lexer(input);
