@@ -8,5 +8,6 @@
 	<classpathentry kind="lib" path="E:/SuperMinijoe/lib/jackson-mapper-asl-1.9.13.jar"/>
 	<classpathentry kind="lib" path="E:/SuperMinijoe/lib/jackson-core-asl-1.9.13.jar"/>
 	<classpathentry kind="lib" path="E:/SuperMinijoe/lib/guava-18.0.jar"/>
+	<classpathentry kind="lib" path="E:/SuperMinijoe/lib/jexplorer-3.1.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -31,6 +31,7 @@ import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
+import com.teamdev.jexplorer.demo.JExplorerDemo;
 
 import cz.jiripinkas.jsitemapgenerator.ChangeFreq;
 import cz.jiripinkas.jsitemapgenerator.WebPage;
@@ -52,6 +53,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
 import java.util.Properties;
+
+import javax.swing.JPopupMenu;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 
 import org.iq80.snappy.Snappy;
 import org.jsoup.Jsoup;
@@ -103,6 +108,7 @@ public class Eval extends JsObject {
   static final int ID_SEND_MAIL = 116;
   
   static final int ID_SNAPPY = 171;
+  static final int ID_OPENBROWSER = 172;
 
   static final JsObject COMPILER_PROTOTYPE = new JsObject(OBJECT_PROTOTYPE);
 
@@ -131,6 +137,7 @@ public class Eval extends JsObject {
     addVar("snappy", new JsFunction(ID_SNAPPY, 0));
     
     addVar("levelDb", new JsLevelDB());
+    addVar("openBrowser", new JsFunction(ID_OPENBROWSER,1));
 
   }
 
@@ -434,11 +441,29 @@ public class Eval extends JsObject {
     		  ex.printStackTrace();
     	  }
     	break;
+    	
+    	
+      case ID_OPENBROWSER:
+    	  new Thread(new Runnable(){
+    		  public void run(){
+    			  openBrowser();
+    		  }
+    	  }).start();
+    	  break;
           
       default:
         super.evalNative(index, stack, sp, parCount);
     }
   }
+
+private void openBrowser() {
+	try {
+		com.teamdev.jexplorer.demo.JExplorerDemo.main(null);
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+}
 
   public static void compile(String input, OutputStream os) throws CompilerException, IOException {
     Lexer lexer = new Lexer(input);
